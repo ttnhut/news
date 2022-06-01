@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <th:block th:include="fragments :: head"></th:block>
+        <title>Quản lí bài báo</title>
+    </head>
+    <body>
+        <div class="container">
+            <section class="header" th:insert="fragments :: header"></section>
+            <section class="content">
+               <div class="alert alert-success" th:if="${alert} != null " th:text="${alert}"></div>
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                      <tr>
+                        <th>Tiêu đề</th>
+                        <th>Ngày đăng</th>
+                        <th>Mô tả</th>
+                        <th>Người đăng</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="post : ${posts}">
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img
+                                th:src="${post.image}"
+                                alt=""
+                                style="width: 45px; height: 45px"
+                                class="rounded-circle"
+                                />
+                            <div class="ms-3">
+                              <p class="fw-bold mb-1" th:text="${post.title}">John Doe</p>
+                              <p class="text-muted mb-0" th:text="${post.user.username}">admin@gmail.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="fw-normal mb-1">Ngày đăng :</p>
+                          <p class="text-muted mb-0" th:text="${post.createdDate}"></p>
+                        </td>
+                        <td style="display: inline-block; width: 200px ; overflow: hidden; text-overflow : ellipsis; white-space: nowrap">
+                          <span class="badge badge-success rounded-pill d-inline" th:text="${post.description}">Active</span>
+                        </td>
+                        <td>Senior</td>
+                        <td>    
+                            <a th:href="@{/admin/editpost/{id}(id=${post.id})}">
+                                <button type="button" class="btn btn-link btn-sm btn-rounded">
+                                  Chỉnh sửa
+                                </button>
+                            </a>
+                            <a th:href="@{/admin/deletepost/{id}(id=${post.id})}">
+                                <button type="button" class="btn btn-link btn-sm btn-rounded">
+                                    Xóa
+                                </button>
+                            </a>
+                        </td>
+                      </tr>
+                     
+                    </tbody>
+                </table>
+            </section>
+            <section class="footer" th:insert="fragments :: footer"></section>
+        </div>
+    </body>
+</html>

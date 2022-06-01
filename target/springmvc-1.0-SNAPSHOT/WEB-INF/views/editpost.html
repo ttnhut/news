@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <th:block th:include="fragments :: head"></th:block>
+        <title>Chỉnh sửa bài báo</title>
+    </head>
+    <body>
+         <div class="container">
+         
+            <section class="header" th:insert="fragments :: header" style="z-index: 1000 !important"></section>
+            
+            <section class="content" style="margin: 100px 0px">
+                <form th:action="@{/admin/editpost/{id}(id=${post.id})}" th:object="${post}" method="post" enctype="multipart/form-data">
+                    <div class="alert alert-success" th:if="${alert} != null " th:text="${alert}"></div>
+                    
+                    <div class="form-outline mb-4">
+                      <input th:text="${post.title}" type="text" id="title" class="form-control" name="title" th:field="*{title}"/>
+                      <div class="alert alert-warning" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                      <label class="form-label" for="title">Tiêu đề</label>
+                    </div>
+
+                    
+                    <div class="form-outline mb-4">           
+                        <textarea th:text="${post.description}" type="text" id="description" class="form-control" name="description" th:field="*{description}"/>
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                        <label class="form-label" for="description">Mô tả</label>
+                    </div>
+                      
+                    <div class="form-outline mb-4">                       
+                        <label class="form-label" for="file">Hình ảnh minh họa</label>
+                        <input th:field="*{file}" type="file" class="form-control" id="file" />
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('file')}" th:errors="*{file}"></div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="category">Danh mục</label>
+                        <select th:field="*{category}" name="category" id="category" class="form-control" >
+                            <option th:value="${category2.id}" th:each="category2 : ${categories}" th:text="${category2.name}">
+                                
+                            </option>
+                        </select>
+                    </div>
+                    
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Thêm</button>
+
+                   
+                  </form>
+            </section>
+           
+            <section class="footer" th:insert="fragments :: footer"></section>
+        </div>
+    </body>
+</html>

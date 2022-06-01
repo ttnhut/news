@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <th:block th:include="fragments :: head"></th:block>
+        <title>Tin tức</title>
+    </head>
+    <body>
+        <div class="container">
+            <section class="header" th:insert="fragments :: header"></section>
+            
+            <section class="content" style="margin: 100px 0px">
+                <article>
+                    <div class="row text-center">
+                        <div class='col-12'>
+                            <h2 th:text='${post.title}'></h2>
+                        </div>
+                        <div class='col-12'>
+                            <img class="img-fluid" th:src='${post.image}' />
+                        </div>
+                        <div class='col-12'>
+                            <pre style="overflow: visible">
+                                <p th:text='${post.description}'>
+                                
+                                </p>
+                            </pre>
+                        </div>
+                    </div>
+                </article>
+            </section>
+           
+            <section class="footer" th:insert="fragments :: footer"></section>
+        </div>
+    </body>
+</html>

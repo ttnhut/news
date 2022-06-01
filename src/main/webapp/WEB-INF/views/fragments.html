@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head" >
+        <link rel="shortcut icon" href="data:image/png;base64,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" />
+        
+        <link th:href="@{/css/style.css}" rel="stylesheet" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Font Awesome -->
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet"
+        />
+        <!-- Google Fonts -->
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet"
+        />
+        <!-- MDB -->
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+          rel="stylesheet"
+        />
+    </head>
+    <body>
+        <!--Header-->
+        <div th:fragment="header">
+                    <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+              <!-- Toggle button -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="fas fa-bars"></i>
+              </button>
+
+              <!-- Collapsible wrapper -->
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                  <img
+                    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBQSEhgSFhIYGBUVGBoYEhkVGhoYGBUYGBgZGhgUGhocIS4lHB4sHxoYJjgnKzAxNTU2GiQ7QDs0Py40NjEBDAwMEA8QHxISHzQrIys1NjY1PTQ0NjQxND0xNDQ2NDQ0NDQ0NDQ0PTQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYBAwQCBwj/xABJEAACAQIDBAYECAsIAgMAAAABAgADEQQSIQUxQVEGEyJhcYEHMlKRFCNCkqGxwdEVJDM0YnJzsrPS4VRjgpOiwsPwFkNEU3T/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAQIDBAUG/8QAKhEAAwACAQMDAwMFAAAAAAAAAAECAxESBCExIkFREzIzYXGBFCNCobH/2gAMAwEAAhEDEQA/ANMRE+jPLEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQDmxWJNPUU2Ycxa3nxHunAdqud1MeZJ+6TE5q+DVtRoeY4+IlWn7MsmiP8AwlU9lPcfvgbTqcUX6R9sxUpFTYjw5HwmMoldP5J2jcm1jxp+4/eJvp7TpneSv6w+684SgnhqQj1DsTiOrC6kEdxvPcrvVFTdSQeY0M6aO0XTRhmHuP8AWTy+SNfBMxNGHxSVB2TrxB0I8pvlk9lRERJAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgHiogYWI0kXXolDY6g7j/AN4yXnipTDCx3H/t5DROyIiZqIUbKfLvHOYlSRPLKJ6iAc7UrG40I3EbxO3C7St2X8m/m++aprdLyNa8De/JOgzMhMLijTOU3KfSvePukyjggEG4O4jjLTWyGtHqIiWIEREAREQBETBMAzElcF0erV0D0zSYaXyupKki9mHyW7psXozXZsoeiW9kVVLe60xefGu3Iv8ATr4IaJ0Y/AVcOwWqhUn1b2Ia3JhoZzzSaVLaKtNdmeXawvJ2vg6GGwYbEAnEV+1RVTZ0X5JPIa3NxxA3iQaswdcou+ZcgIDXa4yix0OttJ17e2XiqdUVsSQWqk2YEEdm3Z09UAHQTDK27md6/wCsvCSTejjQ3E9TCiDOgzMxJDZ2xK+IXOqBaft1DlW3MHeR3gWnbS6LtU0p4nDuw3qr3P0AzKs+OXpsusdP2IKJvx2Bq0Gy1UKk+rxVhzVhoZomk0qW0Vaa7MRE7tnbIqYgfFlCbnslwH0tc5TrbXfIq5lbphS32RE4yjnW49Yajv5iRimWTaWAqYZxTqABioYWNwQSRe/iDIDFU8jnk2o+0SNqlyXgnTXZmuJ17K2bUxVTqqQBbKW1NgAtrknzHvnVtbo/Xwq5qpprusoqKWIJtcLvI75V5IVcW+5KltbIqYdrC8yiFmCqpZmICqouWJ3AAbzLlszoBiCFq1KyUCpDAZRVKkEEZrkLe/DtCVyZZhd2TMOvBGbS6P0sNg0rV6rriKoJp0VC+Wa+oABGY8Cbb5AYHFGmcp9Q/wCk8/CXvaXQWtimNY7RWtUsBdqYAsNy3RiFG/cvEnjKXtzZVXBvkrpluCVa90YDeVbj4bxpcTHBlT813NLhr27EkJmSGJ6NVsJhUqvURwWAslyEVhdDmNs3LdxG+bMD0fr11z0zTcWF8tRSVuLgMB6p7jOhZ8fHe+xk8db1oi4nVtDZ7Yc5XZM17FVdWZdL9pRqPOcs0mlS2irTXZiIiWIEw0zMGAWj0ZX63Ej9Gl9dSUFKZIzd9xL/AOjT8piv1aX11JAYV9lWF6mLy8cy093fkF/dPN5KctbT9jqabmSx1sS1fYYq1jd1sFZt5K1sitfmRoTxuZUUNxLF0iwtXFUFqYapTfBUR2KdIMGTKLXdTqSBw0IB3cZW1NlmvSeH+/j4KZvKJfozSU4g13/JYVGrOe9Qco8b3I/UkxWxp2lsg1yB1tF2ZwPklCcw/wAtrzj/AAXXGywtKkzvi3D1MtuzSGqDW2+yn/G06/R/s7EYd61Gth2WlVUMC1suZeyV0Pylb/ROfLaqnafdPt/BrE6XH5KkjXEnOieyRiq5zi9KkAzj2mJOVT3aEnwtxkPjMKaFWpQO+m5UX4rvRvNSp85dPRzrha5Hrdaw91NLfSTOnqMr+lufcxxz69MqHSfbLYyuyK1qFNilJBopC6ZyBvJtpyFhzvENhmWzKSGXUEGxBG4gjUGbNnJZB4TsImuPFKhIrVPlsuHRfHjaeFqYXEa1aVrN8oqbhKo/SBBB56X3mVCrSam7U29ZGKN4qbXHdJboBddo6bmo1AfAMh+sCaullhtGuB+gT4mml5z4fRmcLx5NL9UKvcjZ3dE0J2lQ7i5PlSecUluhg/HQ3sU6j/Rl/wB06Oo/G/2Msf3ImOluTF4Ojj6eoX1uYRyFZTbirgD50om0Fugb2T9B0+u0s/oxxgenV2fV1V1LoDxVgFqqPMhv8TSGxGzKnXNgv/YX6sG2mvqvblazeE5unvgnFe3c2yzy00TPQNlwwSu47eMrDD4cHgiBmqP4Fly+KrzkL6QQfwnVv7NO3h1a/beb8ZjVO18JQpn4nB1KeHp97BgtRvEtof1LzHpKTLtFj7VKm376/wC2Z423m5P3RZ9o0iZ9HmASnSq7Rq6LTDimT8lEW9Rx3n1f8Lc5R9v7bxG0ahqVGIp3+LpA9hF4C25m5sdb33CwF9w2nRpsvFKgbwOIYP8ARefPKC2EvilXdVXzorb4ykjkoU3ouKlJ2R11VkOVh5jh3T7D0X2y+0cA7WT4VRzJd1DJ1gW6VcvI3F7cQ1p8tYS8eiFSHxXs2o+F71Y6rGlPJeww229FFx+2sXiiKlau7WN1UnKqnuRbLfhe15e/RdVzV6ttzU1J8Q5FvpMo2IsalS27rKmXwzm30S3eiRj8Krrw6pSPnWP2ScsqcPYQ933IrFEnE1yf/vq/xGnqMR+cV/21X+I0TsxfYjG/uYiImhQTBmZ5fdIBbPRqpzYluB6tfMdYftEoeFw4KeUs+zuma4NOrpYHQnM7NWN2YgAseweAGk5F2zgzr+DLHkuIqBfcFtPPl1OSqcvudL05STJ30Yo1MYp2NqV01Pq5lDlz5KUv5StbJwvwrELRUWR2N+6mCSx7uyPfae9qdIq2Ip/B0RaGH3FKXyhvIZuI7gBfjedGxOkVPAgFMFmqFQru1UgtxOVchCgngOQ5SFOSeVJd3/oNy9JvwaelO0Hq4xwjstOlakioxUAJodAbetm8rTgwm0auHr06xqOVR1ZwWYgpfti19ezmnRiMTSqv1iUDSLFmcFy4LMb3F1GUb9O+eM1MG9Smai2N0VyhPLtAG02nEvpeCjp8/JafSFgstWniV9WouRiN2ZdUPmpPzJx9ANrLQxL4dzZa9urJ3CotwF/xA28VA4zXiemq16fwd8AOrGULas11y+qQeruCLSu4miHuQLC5Ki9yBfQX4+MzjHV4uFLwXdKa2ib6Q7KbC4l1t8XUZnpHhYm5XxUm1uVjxkeTJHBdMHFPqMXRXEUxuZjZxbcSbWYjnoe8zP4Z2cvaXAVWbgtSocnn2muPEGaY8txPGpba+CtzNPaZKdCqC0FrbQqnLTVCiMflC4LkDjqqqLbzcSqvimxFapiGFjUctb2R8lfJQB5TbtfbFfGlVayUl9Skgsi20BI+Ubaa7uAE10ksLScOOuTuvLIulxUo2SX6Hr8diH9nDVPeStvqMh2kjszpLTwgZUwWdqiharNWPbsDewyEKNToOct1PJxqVvZXFrltkFs/FNhqtPErvpsGIHyl3OvmpYec+k9IOpo32qrAsaASiN4Z6lurqDvCsb/o+E+e4o03/J0jTXLbIzl9ddQxANrW07p7r46pUw9HCsOxQZmU31bNfKCOGUFgO490xyYXbml/JrNpJpkNsW64vDkm5GJpXJ3n41LknnLV6U6dscje1h1HmtSp94le2bj6GHfrHwprOlQPT+NNNVKm63UKc3aF5Jbd6V09oAGpgctRVZabisxy5rHtL1YDC4lamvqppdkE1xa2WD0dYmnicHX2bUNjZyo4mnV9Zh3q5J7syyl47AVMLUahVXK6nydeDoeKn+m8GclGtUo1FrUnKVEN1Zd45gjcQdxB0MudD0j0qiBMbgRUI4oFdSfayVPV+cY1eK3UraY9Nyk/KKgx4DUnQAakk7gBxM+i7MX8D7KqVqnZr1iWVTv6xly0qfkBmPLtcpFr09wFG7YbZpFTgStKn/qUs30SqbZ2ziMfUFSswst+rRdEQHkOJNhcnU+FhFO8zS1pBKY777nHhkssu/ooH43XP90v78ptrCT+x+l9LAZjR2fdnCiozYhrtlvaw6shRck2HOadRLccUiuN+rbPOJ/OK/7ar/EaJmrtSlir1lwxou7l6lqhdSTfNYFRa51mBOjC3wW0Z39zERE1MxMETMQSajSB4R1Im2JGkTs8BAJg0wZsiNEbPKoBDLeeogGoUhNgWZRSxyqCzclBJ9wm2phaqi7UqijmyOo95EjlK7bJ0zmamDwnkUBNoN5mTpDZ5VAJ6iJJBgzwaYmybcHh2rVFpKLsxsO7mx7gLnylW0ltkrfsaFS0WA1mbyU6PbJXG1HpM7KAha6WvvC8QecrdzE8n4JmXT0imIt9ec9hBLJ0w6OJs/qQlR363PfPl0y5LWyge2fdK8JTHc3PJE0nL0zFprakDNsTTRGzSKAm1VtMxGhsETW9MGbIMaB1bKAyEcmP1AyQkfsrc/iPqkhJXgh+RERLAREQQIiIAiIgCd+wdlnF1xTuQijNVYbwu4Ad5Og8zwke0tvQbaOFw9F2q4mkju+53RGyKoC6E8yx85zdTkcx6fJpilVXctbHDYCjmJSjSWwLMQtzwuTqzHzJkdg+m2z6rhFxShibDOroCTuAZ1AJ85QunePGNxYVHD0KKAIUIZGdxmZwRoTqq92U8zIGtsxSu6cMdLVzybOisql6R9a6RdF6ddS9MBKw1BGgc8nHM+1v8Z851BIIIYEhgd4INiD33l99G+MergctRixou1NWbUlQqsoJ42DZfBRKr0sphNoVlG5srW72VS3vNz5zXpMlK3jZTNKc8kRsRMT0jmMO1hefQehWxDRp9fUFqtUaA70TeF7idCfIcJXeh+xfhNXrWHxNIjfud94XvA0J8hxM+mzzOsz79E/ydWHH/kz4dhnuLyy+jp/x6ov9wSf8xAPtlWwrhUudwFzJ30V1C+OrueNE+QzpYTbqH/ZKYl6zu9Lnr4Xwrf8ADKKJevS76+F8K/8Awyigx0n40M/3iIidRkIiIAiIMA6tljR/EfbJCcWzF7BPNj9QnbJXghiIiWIEREAREQBERAMETkrYMMbzsiVaT8kp6OehQCTcKbOyoq5mYhVUbyTwh2sJf+h3R/qV+EVV+NYdhT/61P1MePIac5jnyrFH6+xeIdUTGw9nLg8MtMsOwC1RtwLHtO2u4fYBPlOO2h8KxVXED1XfsX9hQEQ9xKqD5yx+kHpJnJwFFv8A9LDhxFEf7vdxNqth6eUWnN0eN7eSvc1zUtcUb5twOCbEVVop6znU8EUesx7gPsHGaHa0+j9D9h/BqXWOPjqoBe+9F+TT+09/gJ0dTm+nHby/BnijlX6HVi8TQ2Xgi50pUF0AtmdjuUc2Zj7zJPBVjUpI5FiyKxA3AsoNvpnx/p9t34dVNNDfD0CQlt1R9Q1TvG9V7rn5U+u7L/N6X7NP3RPJuHKVV5Z2Kk+y9j4FUxGYCmNw9fvPsy4eigfjlX9h/vSUjAp2ZePRX+eVf2B/iJPQz/hbOfH95c+kvRdcfVoM7ladEVM6r6zlzTsAx9Udg30vrpbfNlPofgVXL8GQ20uSxb5xN5C+lTa9WhhkpUqhRq7kOykhhTRbsFYaqSWQX5X5z5HhqlbC1BiKVRkqIcwIJ7Vtcr+0p4g75x44yVPZ9janKruj6N0w6GrhqZxNAtkT8ohJYqpNs6sdSBxBvzvpaUoGfd8WorYZgR2alJrjudTp9M+B4Z8yA8wJ2dJlqk1XsYZpSe0boiJ2GImGmZjLmIXmbQESeCS1Ne8X9+s6JgCZlioiIkgREQBERAMTMjscz02FRD2W9dTuvz7rj6p7obSRtG7B793v++V5LeidHdMEwGuLjUd0mujGwji6mZgRQQ9s+22/qx3czy8dK5Mk455MmZdPSJHoZsDrCMVVXsqb0VPy2H/sI5A7uZ14C/d066UfBU+D0W/Gag0O/qVOnWH9I6hR57hY29ECgAAAAWAGgAG4ASr1eguEeo9V2qtUdizsz3JJ8tBuAG4AADdPHrKrvlfg7lLmdI+ZYLDZRc3JOpJNySd5J4mds+ijoThf7z5/9JSelGETDYlqSkhVRTdjf1hrrPRw9TFPjJy3ia7sluhOxuuqfCXHxdM/Fg7mcfK8F+vwMuu28C+IoPRSqaRcZS4W7BT6wXUWJGl+FzPkrekDF0FWlRFHKgCqAjEADmc+vjNQ9JW1D/Z/8tv55xZoyXfI3xuZnRbW9GoyZFxZXS1+qGnh2pfMJR6umlO98iqt+eUAXt5T4s/pJ2mAT+L6f3Tfzz7Ps+qalFHa2Z0Vmtuuygm0yy8+3I0nj7HyvpH0MGz8P1wxBftKuUoF9a+t8x5Td6Kvzyr+wP8AESV7aHS7GY6l1Vfq8uYN8WhU3W9tSx01MsHop/PKv7A/xEnVXP6D5GK4/UWjt9Lo7eE8K/8Awz57ix2D4H6p9D9Lvr4Xwr/XRnzzF+ofA/VNOm/EVy/efoCh+ar+yH7k/P8Agfya/qj6p+gKH5sv7IfuT8/4H8mv6o+qZ9F5otn8I6YiJ6BzAzowCXYt7Og8T/T65zHlxO6S2HpZFC+/vPGEDbERLlRERAEREAREQDxVQMpU7j/28hKtCxKnePp75PTnxWHzi49Ybu/ulaWyU9EIEZdVYjwJE7KfSbaNJAlPFMiroqhKdhx35LnxM8TGWZXjm1pl5pybP/Mdq/2x/mU/5I/8x2r/AGx/mU/5JqyDlGQcpl/TQX+szYOl21j/APOf5lL+ScuJr1sTU6yvUNRyACzBRoNwsoA+ib8o5TNpaMEy9oisjaNK0BymwUxynqJskjPZqq0wRa0706T7SWyrjHCqAFAWnoALAepOWLSlY5vyi0058GqilhNuGx1fDOXw9VqbMMrFQpJW4Nu0CN4ERaWqE1pkKmnszi9p4nFFTiKzVMl8mYIMua2a2VRvyj3TVVS4tNloiYUrSDpt7Opek20QMoxj5QMoXLTta1repfdOGimUWmy0SsY5jwKp15EGJsw1Euf0RvP2TQg3YCjc5zuHq/aZITCi2g3DdMyyRURESQIiIAiIgCIiAIiIBy4rC5u0PW/e/rI/u48ZNTnxGGD67m4H7DKtE7I2JmpTZDYjw5GYkEiIiAIiIAiIgCIiAIiIAiCZ04fCFtW0HLifugGmhQLnkOJ+wd8lEQKLAWAmVUAWAsBPUskRsRESSBERAEREAREQBERAEREAREQDy6AixFx3ziq4Hip8j9hnfEjQIZ0K7wR4zF5MkX3zQ+DQ8LeH3SNE7I2J1tgDwb3ieDhH7j4H740wc8Td8Ff2fpH3wMI/s/SIJNMTpXBPxIHvM2pgRxYnw0jTBw3m2nhmbhYcz90kEoqu5R48feZtjRGzRRwqprvPM/YOE3xEkgRESQIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIkARESQIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAf//Z"
+                    height="15"
+                    alt="LiveNews Logo"
+                    loading="lazy"
+                  />
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item" th:each="category1 : ${categories}">
+                    <a class="nav-link" th:href="@{/category/} + ${category1.id}" th:text="${category1.name}"></a>
+                  </li>
+                 
+                </ul>
+                <!-- Left links -->
+              </div>
+              <!-- Collapsible wrapper -->
+
+              <!-- Right elements -->
+              <div class="d-flex align-items-center" th:if="${user} != null">
+                
+                <div class="input-group">
+                    <div class="form-outline">
+                        <form th:action="@{/search}" method="get">
+                            <input type="search" id="q" class="form-control" name='q'/>
+                            <label class="form-label" for="q">Tìm kiếm</label>
+                            <button type="submit" class="btn btn-primary">
+                             <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                  </div>
+
+                <!-- Notifications -->
+                <div class="dropdown">
+                  <a
+                    class="text-reset me-3 dropdown-toggle hidden-arrow"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-bell"></i>
+                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                  </a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <li>
+                      <a class="dropdown-item" href="#">Tin tức mới</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Tin tức khác</a>
+                    </li>
+                   
+                  </ul>
+                </div>
+                <!-- Avatar -->
+                <div class="dropdown">
+                    
+                  <a
+                    class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                    href="#"
+                    id="navbarDropdownMenuAvatar"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                      class="rounded-circle"
+                      height="25"
+                      alt="Black and White Portrait of a Man"
+                      loading="lazy"
+                    />
+                  </a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdownMenuAvatar"
+                  >
+                    <li>
+                      <a class="dropdown-item" href="#" th:text="${user.username}"></a>
+                    </li>
+                     <li>
+                      <a class="dropdown-item" th:href="@{/admin/manager}" th:if="${user.userRole} == 'ROLE_ADMIN'">Quản lí</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Cài đặt</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" th:href="@{/logout}">Đăng xuất</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="d-flex align-items-center" th:if="${user} == null">
+                  <div class="input-group">
+                    <div class="form-outline">
+                     <form th:action="@{/search}" method="get">
+                            <input type="search" id="q" class="form-control" name='q'/>
+                            <label class="form-label" for="q">Tìm kiếm</label>
+                            <button type="submit" class="btn btn-primary">
+                             <i class="fas fa-search"></i>
+                            </button>
+                     </form>
+                    </div>
+                    
+                   
+                  </div>
+                  <a th:href="@{/login}">
+                      <button class="btn btn-primary">Đăng nhập</button>
+                  </a>
+                  <a th:href="@{/register}">
+                      <button class="btn btn-primary">Đăng ký</button>
+                  </a>
+                  
+              </div>
+              </div>
+              <!-- Right elements -->
+            </div>
+            <!-- Container wrapper -->
+          </nav>
+          <!-- Navbar -->
+          <!-- Jumbotron -->
+            <div class="p-5 text-center bg-light">
+              <h1 class="mb-3">LiveNews</h1>
+              <h4 class="mb-3">Báo thông tin nhanh nhất</h4>
+            
+            </div>
+  <!-- Jumbotron -->
+        </div>
+        
+        <!--Footer-->
+        <div th:fragment="footer">
+                        <!-- Footer -->
+            <footer class="text-center text-lg-start bg-light text-muted">
+              <!-- Section: Social media -->
+              <section
+                class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+              >
+                <!-- Left -->
+                <div class="me-5 d-none d-lg-block">
+                  <span>Liên hệ với tôi:</span>
+                </div>
+                <!-- Left -->
+
+                <!-- Right -->
+                <div>
+                  <a href="" class="me-4 text-reset">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="" class="me-4 text-reset">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="" class="me-4 text-reset">
+                    <i class="fab fa-google"></i>
+                  </a>
+                  <a href="" class="me-4 text-reset">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="" class="me-4 text-reset">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="" class="me-4 text-reset">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+                <!-- Right -->
+              </section>
+              <!-- Section: Social media -->
+
+              <!-- Section: Links  -->
+              <section class="">
+                <div class="container text-center text-md-start mt-5">
+                  <!-- Grid row -->
+                  <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                      <!-- Content -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>LiveNews
+                      </h6>
+                      <p>
+                        Trang báo nhiều người xem nhất Việt Nam.
+                      </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                        Danh mục
+                      </h6>
+                      <p th:each='category : ${categories}'>
+                        <a th:href="@{/category/} + ${category.id}" th:text='${category.name}' class="text-reset">Việt Nam</a>
+                      </p>
+                     
+                     
+                    </div>
+                    <!-- Grid column -->
+
+                 
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                      <!-- Links -->
+                      <h6 class="text-uppercase fw-bold mb-4">
+                        Contact
+                      </h6>
+                      <p><i class="fas fa-home me-3"></i> Sài Gòn, Quận 9</p>
+                      <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        tannhut030401@gmail.com
+                      </p>
+                      <p><i class="fas fa-phone me-3"></i> 0375361262</p>
+                      </div>
+                    <!-- Grid column -->
+                  </div>
+                  <!-- Grid row -->
+                </div>
+              </section>
+              <!-- Section: Links  -->
+
+              <!-- Copyright -->
+              <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                © 2021 Copyright:
+                <a class="text-reset fw-bold" th:href="@{/}">LiveNews</a>
+              </div>
+              <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+            <!-- MDB -->
+            <script
+              type="text/javascript"
+              src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
+            ></script>
+        </div>
+    </body>
+</html>

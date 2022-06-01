@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <th:block th:include="fragments :: head"></th:block>
+        <title>Đăng ký</title>
+    </head>
+    <body>
+         <div class="container">
+            <section class="header" th:insert="fragments :: header"></section>
+            
+            <section class="content" style="margin: 100px 0px">
+                <div class="alert alert-warning" th:if="${msg} != null" th:text="${msg}"></div>
+                <form th:action="@{/register}" method="post" th:object="${user1}">
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                    <div class="form-outline mb-4">              
+                      <input type="tezt" id="username" class="form-control" name="username" th:field="*{username}"/>
+                      <label class="form-label" for="username">Tên đăng nhập</label>
+                    </div>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                    <div class="form-outline mb-4">
+                      
+                      <input type="password" id="password" class="form-control" name="password" th:field="*{password}" />
+                      <label class="form-label" for="password">Mật khẩu</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="password" id="confirmPassword" class="form-control" name="confirmPassword" th:field="*{confirmPassword}" />
+                      <label class="form-label" for="username">Xác nhận mật khẩu</label>
+                      
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Đăng ký</button>
+                </form>
+            </section>
+           
+            <section class="footer" th:insert="fragments :: footer"></section>
+    </body>
+</html>

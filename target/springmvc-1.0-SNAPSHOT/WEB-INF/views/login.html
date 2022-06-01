@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <th:block th:include="fragments :: head"></th:block>
+        <title>Đăng nhập</title>
+    </head>
+    <div class="container">
+            <section class="header" th:insert="fragments :: header"></section>
+            
+            <section class="content" style="margin: 100px 0px">
+                <div class="alert alert-warning" th:if="${param.error} != null ">Tên đăng nhập hoặc mật khẩu đã sai</div>
+                <div class="alert alert-warning" th:if="${accessDenied} != null ">Truy cập bị từ chối</div>
+                <h2 class="text-center" style="margin-bottom: 40px">Đăng nhập</h2>
+                <form method="post" th:action="@{/login}">
+                <!-- Email input -->
+                    <div class="form-outline mb-4">
+                      
+                      <input type="tezt" id="username" class="form-control" name="username" />
+                      <label class="form-label" for="username">Tên đăng nhập</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                      
+                      <input type="password" id="password" class="form-control" name="password" />
+                      <label class="form-label" for="password">Mật khẩu</label>
+                    </div>
+
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mb-4">
+                      <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
+                          <label class="form-check-label" for="form2Example34"> Ghi nhớ </label>
+                        </div>
+                      </div>
+
+                      <div class="col">
+                        <!-- Simple link -->
+                        <a href="#!">Quên mật khẩu?</a>
+                      </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Đăng nhập</button>
+
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                      <p>Không phải là thành viên? <a href="#!">Đăng ký</a></p>
+                      <p>Hoặc đăng nhập với</p>
+                      <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                      </button>
+
+                      <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                      </button>
+
+                      <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-twitter"></i>
+                      </button>
+
+                      <button type="button" class="btn btn-primary btn-floating mx-1">
+                        <i class="fab fa-github"></i>
+                      </button>
+                    </div>
+              </form>
+            </section>
+           
+            <section class="footer" th:insert="fragments :: footer"></section>
+    </div>
+</html>

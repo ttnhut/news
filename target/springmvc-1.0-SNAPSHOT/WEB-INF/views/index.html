@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <th:block th:include="fragments :: head"></th:block>
+        <title>Trang chủ</title>
+    </head>
+    <body>
+    
+       <div class="container">
+            <section class="header" th:insert="fragments :: header"></section>
+            
+            <section class="content" style="margin: 100px 0px">
+                <div class="row">
+                    <div class="col-6" th:each="post : ${posts}">
+                          <div class="card" style="width: 400px;">
+                              
+                              <img style="width: 100px;height: 100px" th:src="${post.image}" class="card-img-top img-fluid" alt="Fissure in Sandstone"/>
+                              
+                                <div class="card-body">
+                                  <h5 class="card-title" th:text="${post.title}">Card title</h5>
+                                  <p class="card" style="width: 300px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;" th:text="${post.description}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <a th:href="@{'/post/' + ${post.id}}" class="btn btn-primary">Xem Ngay</a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+           
+            <section class="footer" th:insert="fragments :: footer"></section>
+        </div>
+    </body>
+</html>
