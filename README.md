@@ -1,5 +1,5 @@
 # news
 <h1>Project for reading news</h1>
-Technologies : Spring MVC , Thymleaf , Spring Security
-Database : Mysql
-Cloud for saving media : Cloudinary
+<p>Technologies : Spring MVC , Thymleaf , Spring Security</p>
+<p>Database : Mysql</p>
+<p>Cloud for saving media : Cloudinary</p>
